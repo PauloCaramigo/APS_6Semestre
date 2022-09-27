@@ -1,5 +1,7 @@
 package System;
 
+import java.sql.*;
+
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -30,7 +32,7 @@ public class ImageTest extends JFrame {
 	           
 	          try{
 	        	  testImagem = ImageIO.read(
-	              new File("C:/Users/PC/Desktop/APS_6Semestre/src/images/Não existe.jpg"));
+	              new File("C:/Users/PC/Desktop/APS_6Semestre/src/images/Nï¿½o existe.jpg"));
 	            
 	            imagem2= ImageIO.read(
 	  	              new File("C:/Users/PC/Desktop/APS_6Semestre/src/images/Suh.jpg"));
@@ -66,19 +68,19 @@ public class ImageTest extends JFrame {
 	    
 	    public static boolean compareImage(BufferedImage image1, BufferedImage image2){
 	        if (image1.getWidth()!= image2.getWidth()|| image1.getHeight() != image2.getHeight()){
-	        	JOptionPane.showMessageDialog(null, "São de tamanhos diferentes!");
+	        	JOptionPane.showMessageDialog(null, "Sï¿½o de tamanhos diferentes!");
 	            return(false);
 	        }
 	    
 	        for (int x=0; x<image1.getWidth(); x++){
 	            for(int y=0; y<image1.getHeight(); y++){
 	                if(image1.getRGB(x,y)!=image2.getRGB(x,y)){
-	                	JOptionPane.showMessageDialog(null, "As imagens são diferentes!");
+	                	JOptionPane.showMessageDialog(null, "As imagens sï¿½o diferentes!");
 	                    return(false);
 	                }
 	            }
 	        }
-	        JOptionPane.showMessageDialog(null, "As imagens são iguais!");
+	        JOptionPane.showMessageDialog(null, "As imagens sï¿½o iguais!");
 	        return(true);
 	    }
 	
