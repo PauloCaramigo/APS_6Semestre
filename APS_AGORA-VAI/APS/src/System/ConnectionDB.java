@@ -54,7 +54,7 @@ public class ConnectionDB {
 
         ResultSet r = null;
         try {
-            r = s.executeQuery("Select * from users");
+            r = s.executeQuery("Select * from user");
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -7,7 +7,7 @@ public class CompareImages {
 	BufferedImage testImagem;
 	BufferedImage imagem2;
 	
-	public static boolean compareImage(BufferedImage image1, BufferedImage image2){
+	public boolean compareImage(BufferedImage image1, BufferedImage image2){
 		if (image1.getWidth()!= image2.getWidth()|| image1.getHeight() != image2.getHeight()){
 			JOptionPane.showMessageDialog(null, "São de tamanhos diferentes!");
 			return(false);
