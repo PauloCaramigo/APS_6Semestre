@@ -13,12 +13,12 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Interface extends JFrame {
     getInfo getInfo = new getInfo();
+    CompareImages get = new CompareImages();
     public static void main(String[] args) {
         Interface window = new Interface();
     }
@@ -42,21 +42,24 @@ public class Interface extends JFrame {
 
         
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Word documents", "doc");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Fotos", "jpg", "jpeg","png");
         fileChooser.setFileFilter(filter);
 
+        JLabel imageName = new JLabel();
+        imageName.setBounds(50, 130, 300, 30);
+
         JButton btn = new JButton("Login");
-        btn.setBounds(50, 150, 80, 30);
+        btn.setBounds(50, 180, 80, 30);
 
         // Settings of button
         pwd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int result = fileChooser.showOpenDialog(fileChooser);
-
+                System.out.println(result);
                 if (result == JFileChooser.APPROVE_OPTION) {
-                    File file = fileChooser.getSelectedFile();
-                    //String file = fileChooser.getSelectedFile().getAbsolutePath();
+                    imageName.setText(fileChooser.getSelectedFile().getName());
+
                 }
             }
         });
@@ -64,32 +67,40 @@ public class Interface extends JFrame {
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CompareImages get = new CompareImages();
                 boolean confirmLogin = false;
                 try {
+                    // Declare images
                     BufferedImage imgSelected = ImageIO.read(fileChooser.getSelectedFile());
+                    BufferedImage biometryUser = ImageIO.read(new File(getInfo.getBiometry(loginUser.getText())));
 
-                    File file = new File("../Images/BiometryShiro.jpg");
-                    System.out.println(file);
-                    BufferedImage biometryUser = ImageIO.read(file);
-
+                    // Compare Images to login  
                     confirmLogin = get.compareImage(imgSelected, biometryUser);
                 } catch(Exception ex) {
                     ex.printStackTrace();
                 }
 
-                System.out.println(confirmLogin);
+                if (confirmLogin) {
+                    window.remove(login);
+                    window.remove(loginUser);
+                    window.remove(passwd);
+                    window.remove(pwd);
+                    window.remove(imageName);
+                    window.remove(btn);
+
+                    window.repaint();
+                }
             }
         });
         
         // Add elements
-        add(login);
-        add(loginUser);
+        window.add(login);
+        window.add(loginUser);
 
-        add(passwd);
-        add(pwd);
+        window.add(passwd);
+        window.add(pwd);
+        window.add(imageName);
 
-        add(btn);
+        window.add(btn);
 
 
         // Settings of window
