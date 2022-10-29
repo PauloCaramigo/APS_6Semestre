@@ -2,9 +2,7 @@ package System;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class ConnectionDB {
     public Connection con = null;
@@ -40,31 +38,5 @@ public class ConnectionDB {
         }
 
         return con;
-    }
-
-    public void consultar(){
-        Statement s = null;
-        Connection connection = getConnection();
-
-        try {
-                s = (Statement) connection.createStatement();
-        } catch (SQLException e) {
-                e.printStackTrace();
-        }
-
-        ResultSet r = null;
-        try {
-            r = s.executeQuery("Select * from user");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            while (r.next()){
-                System.out.println(r.getString("userName") + "  " + r.getString("email"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }

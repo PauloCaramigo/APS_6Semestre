@@ -15,7 +15,7 @@ public class getInfo {
 
         try {
                 s = (Statement) connectionDB.createStatement();
-                r = s.executeQuery("SELECT password FROM user WHERE name = '" + user + "'");
+                r = s.executeQuery("SELECT password FROM users WHERE name = '" + user + "'");
 
                 while(r.next()){
                     if (pwd.equals(r.getString("password"))){ 
@@ -37,10 +37,10 @@ public class getInfo {
 
         try {
             s = (Statement) connectionDB.createStatement();
-            r = s.executeQuery("SELECT password FROM user WHERE name = '" + user + "'");
+            r = s.executeQuery("SELECT biometry FROM users WHERE userName = '" + user + "'");
             while(r.next()){
-                System.out.println(r.getString("password"));
-                return r.getString("password");
+                System.out.println(r.getString("biometry"));
+                return r.getString("biometry");
             }
             return "Ocorreu um erro ao puxar os dados";
 

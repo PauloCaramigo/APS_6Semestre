@@ -88,6 +88,8 @@ public class Interface extends JFrame {
                     window.remove(btn);
 
                     window.repaint();
+
+                    Graphics graphics = new Graphics(window);
                 }
             }
         });
