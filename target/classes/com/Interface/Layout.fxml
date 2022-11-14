@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Interface.Controller">
+  <children>
+    <AnchorPane fx:id="anchorPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+      <children>
+            <Pane fx:id="paneLogin" layoutX="280.0" layoutY="60.0" prefHeight="600.0" prefWidth="720.0" style="-fx-background-radius: 50px; -fx-background-color: HoneyDew; -fx-border-radius: 50px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" visible="false">
+               <children>
+              <Label fx:id="lblLogin" alignment="CENTER" layoutX="50.0" layoutY="130.0" prefHeight="44.0" prefWidth="98.0" style="&#10;" text="Login" textAlignment="CENTER">
+                <font>
+                  <Font name="System Bold" size="36.0" />
+                </font>
+              </Label>
+                  <Label fx:id="lblPassword" alignment="CENTER" layoutX="50.0" layoutY="220.0" style="&#10;" text="Senha" textAlignment="CENTER" wrapText="false">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtLogin" layoutX="190.0" layoutY="135.0" prefHeight="45.0" prefWidth="425.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></TextField>
+                  <PasswordField fx:id="txtPassword" layoutX="190.0" layoutY="225.0" prefHeight="45.0" prefWidth="425.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></PasswordField>
+                  <Button fx:id="btnBrowse" layoutX="110.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#browseImage" prefHeight="30.0" prefWidth="500.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="Anexar Biometria">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnLogin" layoutX="185.0" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="30.0" prefWidth="350.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="Login">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Button>
+                  <Hyperlink id="lnkRegister" fx:id="lnkRegister" layoutX="200.0" layoutY="530.0" onMouseClicked="#registerUser" text="Novo por aqui? Cadastre-se.">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Hyperlink>
+                  <Label fx:id="lblImage" alignment="CENTER" layoutX="130.0" layoutY="290.0" prefHeight="80.0" prefWidth="475.0" style="&#10;" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblLoginFail" layoutX="100.0" layoutY="30.0" prefHeight="40.0" prefWidth="530.0" text="Credenciais incorretas. Tente novamente." textFill="RED" visible="false">
+                     <font>
+                        <Font size="30.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane fx:id="paneRegister" layoutX="15.0" layoutY="15.0" prefHeight="690.0" prefWidth="1250.0" style="-fx-background-color: LightCyan; -fx-background-radius: 50px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" visible="false">
+               <children>
+                  <Label fx:id="lblUser" alignment="CENTER" layoutX="40.0" layoutY="100.0" style="&#10;" text="Usuário" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPasswordReg" alignment="CENTER" layoutX="40.0" layoutY="230.0" style="&#10;" text="Senha" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblRegister" alignment="CENTER" layoutX="40.0" layoutY="15.0" style="&#10;" text="Cadastro de novo usuário" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="48.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPasswordCheck" alignment="CENTER" layoutX="40.0" layoutY="300.0" style="&#10;" text="Confirmação de senha" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblImageReg" alignment="CENTER" layoutX="40.0" layoutY="370.0" style="&#10;" text="Imagem de autenticação" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNote" alignment="CENTER" layoutX="45.0" layoutY="610.0" prefHeight="60.0" prefWidth="1160.0" style="&#10;" text="Observação: Todo usuário novo obtém de permissões mínimas em seu perfil, para elevar seu nível de permissão, solicite a alteração de perfil para um gestor." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtUser" layoutX="170.0" layoutY="100.0" onKeyTyped="#limitText" prefHeight="40.0" prefWidth="478.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></TextField>
+                  <TextField fx:id="txtEmail" layoutX="170.0" layoutY="160.0" onKeyTyped="#limitText" prefHeight="40.0" prefWidth="1000.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></TextField>
+                  <PasswordField fx:id="txtPasswordReg" layoutX="170.0" layoutY="230.0" onKeyTyped="#limitText" prefHeight="40.0" prefWidth="1000.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></PasswordField>
+                  <PasswordField fx:id="txtPasswordCheck" layoutX="450.0" layoutY="300.0" onKeyTyped="#limitText" prefHeight="40.0" prefWidth="720.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font></PasswordField>
+                  <Button fx:id="btnBrowseReg" layoutX="40.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#browseImage" prefHeight="50.0" prefWidth="380.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="Anexar">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnRegister" layoutX="500.0" layoutY="530.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="50.0" prefWidth="250.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="Cadastrar">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnBack" layoutX="970.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="30.0" prefWidth="200.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="Voltar">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="lblEmail" alignment="CENTER" layoutX="40.0" layoutY="160.0" style="&#10;" text="E-mail" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblImageReg" alignment="CENTER" layoutX="450.0" layoutY="370.0" prefHeight="120.0" prefWidth="720.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-border-color: lightgray; -fx-border-radius: 10px;" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblFailedInfo" layoutX="660.0" layoutY="90.0" text="As senhas não conferem." textFill="RED" visible="false">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbbState" layoutX="1020.0" layoutY="100.0" prefHeight="40.0" prefWidth="150.0" />
+                  <Label fx:id="lblUser1" alignment="CENTER" layoutX="900.0" layoutY="100.0" style="&#10;" text="Estado" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="panePrompt" layoutX="175.0" layoutY="145.0" prefHeight="400.0" prefWidth="900.0" style="-fx-background-color: white; -fx-background-radius: 50px; -fx-border-color: black; -fx-border-radius: 50px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" visible="false">
+               <children>
+                  <Label layoutX="250.0" layoutY="30.0" text="SUCESSO !!!" textFill="#059744">
+                     <font>
+                        <Font name="Arial Black" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="12.0" layoutY="135.0" prefHeight="132.0" prefWidth="876.0" text="SEU CADASTRO FOI REALIZADO COM SUCESSO. UTILIZE NOSSA TELA DE LOGIN PARA ACESSAR SEU PERFIL." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnOk" layoutX="361.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="30.0" prefWidth="200.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="OK">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <ScrollPane fx:id="paneSystem" prefHeight="720.0" prefWidth="1280.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;">
+                     <children>
+                        <Pane fx:id="paneConfirm" layoutX="465.0" layoutY="190.0" prefHeight="340.0" prefWidth="650.0" style="-fx-background-color: white;" visible="false">
+                           <children>
+                              <Label fx:id="lblFailedConf" alignment="CENTER" layoutX="73.0" layoutY="5.0" prefHeight="50.0" prefWidth="483.0" text="Biometria inválida" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblAction" layoutX="30.0" layoutY="50.0" prefHeight="90.0" prefWidth="580.0" text="Para confirmar a ação, insira sua biometria." textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblImageConf" alignment="CENTER" layoutX="125.0" layoutY="140.0" prefHeight="50.0" prefWidth="400.0" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="135.0" layoutY="200.0" mnemonicParsing="false" onMouseClicked="#browseImage" prefHeight="50.0" prefWidth="380.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="Anexar">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="370.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#okPrompt" prefHeight="57.0" prefWidth="143.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="OK">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnCancelAction" layoutX="135.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="30.0" prefWidth="200.0" style="-fx-border-radius: 100px; -fx-background-radius: 100px;" text="Cancelar">
+                                 <font>
+                                    <Font name="System Bold" size="30.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <ListView prefHeight="720.0" prefWidth="300.0" style="-fx-background-color: DarkSlateGray;" />
+                        <Hyperlink fx:id="lnkExit" layoutX="20.0" layoutY="650.0" onMouseClicked="#back" text="SAIR" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Hyperlink>
+                        <Button layoutX="-1.0" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#userProfile" prefHeight="100.0" prefWidth="302.0" style="-fx-background-color: DarkSlateGray; -fx-border-color: white;" text="Minha Conta" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="-1.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#showDatabase" prefHeight="100.0" prefWidth="302.0" style="-fx-background-color: DarkSlateGray; -fx-border-color: white;" text="Banco de dados" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="btnPermission" layoutX="-1.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#managePermissions" prefHeight="100.0" prefWidth="302.0" style="-fx-background-color: DarkSlateGray; -fx-border-color: white;" text="Gerenciamento de permissões" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onMouseClicked="#home" prefHeight="100.0" prefWidth="302.0" style="-fx-background-color: DarkSlateGray; -fx-border-color: white;" text="HOME" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Pane fx:id="paneHome" layoutX="300.0" prefHeight="720.0" prefWidth="980.0" visible="false">
+                           <children>
+                              <Label fx:id="lblHome" layoutX="60.0" layoutY="10.0" prefHeight="168.0" prefWidth="836.0" text="Olá ...!" textFill="#2907bf" wrapText="true">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblWelcome" layoutX="60.0" layoutY="180.0" prefHeight="79.0" prefWidth="616.0" text="Seja muito bem vindo(a)...">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="60.0" layoutY="220.0" prefHeight="415.0" prefWidth="868.0" text="Utilize esse espaço para atualizar suas informações e visualizar dados sobre uso de agrotóxicos proibidos no Brasil. Caso necessite de mudança de permissão, solicite a um administrador." textAlignment="JUSTIFY" wrapText="true">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="paneAccount" layoutX="300.0" prefHeight="720.0" prefWidth="980.0" visible="false">
+                           <children>
+                              <Label layoutX="60.0" layoutY="30.0" prefHeight="117.0" prefWidth="368.0" text="Minha Conta">
+                                 <font>
+                                    <Font size="64.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="60.0" layoutY="180.0" text="Login">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="60.0" layoutY="260.0" text="Email">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="60.0" layoutY="340.0" text="Senha">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="60.0" layoutY="420.0" text="Biometria">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="60.0" layoutY="500.0" text="Permissão">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="60.0" layoutY="580.0" text="Estado">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnEdit" layoutX="600.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#enableEdit" text="Editar">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnCancel" layoutX="750.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#cancel" text="Cancelar" visible="false">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="txtUserLogin" editable="false" layoutX="300.0" layoutY="180.0" minWidth="500.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtUserEmail" editable="false" layoutX="300.0" layoutY="260.0" minWidth="500.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <PasswordField fx:id="txtUserPassword" editable="false" layoutX="300.0" layoutY="340.0" minWidth="500.0" text="*******">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </PasswordField>
+                              <TextField fx:id="txtUserBiometry" editable="false" layoutX="300.0" layoutY="420.0" minWidth="500.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtUserPermission" editable="false" layoutX="300.0" layoutY="500.0" minWidth="500.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtUserState" editable="false" layoutX="300.0" layoutY="580.0" minWidth="500.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="btnSave" layoutX="830.0" layoutY="620.0" mnemonicParsing="false" onMouseClicked="#save" text="Salvar" visible="false">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblAccountInfo" layoutX="60.0" layoutY="620.0" text="Login já cadastrado." textFill="RED" visible="false">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="paneDatabase" layoutX="300.0" prefHeight="720.0" prefWidth="980.0" visible="false">
+                           <children>
+                              <TableView fx:id="database" layoutX="90.0" layoutY="130.0" prefHeight="550.0" prefWidth="800.0" tableMenuButtonVisible="true">
+                                 <columns>
+                                    <TableColumn fx:id="stateCol" minWidth="110.0" prefWidth="75.0" text="Localidade" />
+                                    <TableColumn fx:id="agro1Col" minWidth="110.0" prefWidth="75.0" text="Herbicidas" />
+                                    <TableColumn fx:id="agro2Col" minWidth="110.0" prefWidth="75.0" text="Fungicidas" />
+                                    <TableColumn fx:id="agro3Col" minWidth="110.0" prefWidth="75.0" text="Inseticidas" />
+                                    <TableColumn fx:id="agro4Col" minWidth="110.0" prefWidth="75.0" text="Acaricidas" />
+                                    <TableColumn fx:id="othersCol" minWidth="110.0" prefWidth="75.0" text="Outros" />
+                                    <TableColumn fx:id="totalCol" minWidth="110.0" prefWidth="75.0" text="Total" />
+                                 </columns></TableView>
+                              <Label layoutX="90.0" layoutY="35.0" text="Banco de dados">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="90.0" layoutY="90.0" prefHeight="23.0" prefWidth="792.0" text=" Quantidade consumida de cada classe de agrotóxicos (em toneladas), por estado.">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="paneManagement" layoutX="300.0" prefHeight="720.0" prefWidth="980.0" visible="false">
+                           <children>
+                              <Label fx:id="lblManagement" layoutX="90.0" layoutY="35.0" text="Gerenciamento de permissões">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="list" layoutX="90.0" layoutY="160.0" onMouseClicked="#managePermissions" prefHeight="500.0" prefWidth="250.0" />
+                              <Pane fx:id="panePermission" layoutX="385.0" layoutY="160.0" prefHeight="500.0" prefWidth="547.0">
+                                 <children>
+                                    <Label fx:id="lblSelectFail" layoutX="20.0" layoutY="10.0" prefHeight="80.0" prefWidth="525.0" text="Selecione uma opção." textFill="RED" visible="false" wrapText="true">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lblUserPermission" layoutX="20.0" layoutY="90.0" prefHeight="90.0" prefWidth="525.0" text="A permissão do usuário ... é" wrapText="true">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="20.0" layoutY="180.0" text="Alterar para:">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="rbtBasic" layoutX="20.0" layoutY="240.0" mnemonicParsing="false" text="1 - Básica">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="group" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="rbtDirector" layoutX="20.0" layoutY="300.0" mnemonicParsing="false" text="2 - Diretor" toggleGroup="$group">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <RadioButton fx:id="rbtAdmin" layoutX="20.0" layoutY="360.0" mnemonicParsing="false" text="3 - Administrador" toggleGroup="$group">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </RadioButton>
+                                    <Button fx:id="btnSavePermission" layoutX="400.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#changePermissions" text="Salvar">
+                                       <font>
+                                          <Font size="30.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
