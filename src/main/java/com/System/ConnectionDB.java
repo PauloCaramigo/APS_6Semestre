@@ -1,4 +1,4 @@
-package System;
+package com.System;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ public class ConnectionDB {
     private String url = null;
 
     public ConnectionDB() {
-        url = "jdbc:mysql://localhost:3306/apsdatabase?user=root&password=";
+        url = "jdbc:mysql://localhost/apsdatabase?user=root&password=12345";
     }
         
     /*

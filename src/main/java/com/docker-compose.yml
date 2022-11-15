@@ -1,0 +1,8 @@
+services:
+  mysql:
+    build: ./database/
+    environment:
+      MYSQL_DATABASE: 'apsdatabase'
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes 
+    ports:
+      - 3306:3306

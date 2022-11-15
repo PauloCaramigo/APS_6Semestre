@@ -4,5 +4,10 @@
         "c:\\Users\\PC\\Desktop\\mysql-connector-j-8.0.31.jar",
         "c:\\Users\\Paulo\\Desktop\\mysql-connector-j-8.0.31.jar",
         "c:\\Program Files\\Java\\mysql-connector-java-8.0.30\\mysql-connector-java-8.0.30.jar"
+    ],
+    "maven.view": "hierarchical",
+    "java.project.sourcePaths": [
+        "APS_AGORA-VAI/APS/src",
+        "APS_AGORA-VAI/APS/aps/src/main/java/src"
     ]
 }
