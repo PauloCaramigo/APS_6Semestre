@@ -39,7 +39,6 @@ public class RunQuery {
             s = (Statement) connectionDB.createStatement();
             r = s.executeQuery("SELECT biometry FROM users WHERE userName = '" + user + "'");
             while(r.next()){
-                System.out.println(r.getString("biometry"));
                 return r.getString("biometry");
             }
             return "Ocorreu um erro ao puxar os dados";
@@ -58,7 +57,6 @@ public class RunQuery {
             s = (Statement) connectionDB.createStatement();
             r = s.executeQuery("SELECT " + field + " FROM users WHERE " + field + " = '" + info + "'");
             while(r.next()){
-                System.out.println(r.getString(field));
                 return true;
             }
 
@@ -78,7 +76,6 @@ public class RunQuery {
             if (table.equals("users")) r = s.executeQuery("SELECT " + field + " FROM " + table + " WHERE userName = '" + userName + "'");
             else r = s.executeQuery("SELECT " + field + " FROM " + table + " WHERE estado = '" + userName + "'");
             while(r.next()){
-                System.out.println(r.getString(field));
                 return r.getString(field);
             }
 
@@ -110,7 +107,6 @@ public class RunQuery {
             s = (Statement) connectionDB.createStatement();
             query = s.execute("INSERT INTO users(userName, password, email, biometry, permission, state)  VALUES ('"+ userName + "', '" + password +"', '"+ email +
             "', '"  + biometry +"', 1,'" + state + "')");
-            System.out.println(query);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();

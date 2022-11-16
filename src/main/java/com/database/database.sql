@@ -7,7 +7,7 @@ CREATE TABLE users(
     email VARCHAR(100) not null,
     biometry VARCHAR(255) not null,
     permission INT(11) not null,
-    state VARCHAR(100) not null
+    state VARCHAR(100) not null,
     PRIMARY KEY (userName)
 );
 
@@ -27,6 +27,11 @@ CREATE TABLE agrotoxicos(
     outros INT(8) not null,
     total INT(8) not null
 );
+
+SET character_set_client = utf8;
+SET character_set_connection = utf8;
+SET character_set_results = utf8;
+SET collation_connection = utf8_general_ci;
 
 INSERT INTO agrotoxicos (estado, herbicidas, fungicidas, inseticidas, acaricidas, outros, total) VALUES ("São Paulo", 11716, 5747, 4002, 7960, 1423, 30848);
 INSERT INTO agrotoxicos (estado, herbicidas, fungicidas, inseticidas, acaricidas, outros, total) VALUES ("Paraná", 15010, 2353, 2575, 222, 2330, 22490);

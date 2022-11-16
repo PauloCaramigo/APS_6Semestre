@@ -125,7 +125,7 @@ public class Controller implements Initializable{
         File file = fileChooser.showOpenDialog(primaryStage);
         if (file != null){
             selected = ImageIO.read(file.getAbsoluteFile());
-            getPath = file.getAbsoluteFile().toString();
+            getPath = file.getAbsoluteFile().toString().replace("\\", "/");
             
             if (file != null && paneLogin.isVisible()) lblImage.setText(file.getName());
             else if (file != null && paneRegister.isVisible()) lblImageReg.setText(file.getName());
@@ -494,5 +494,6 @@ public class Controller implements Initializable{
         paneDatabase.setVisible(false);
         paneSystem.setVisible(false);
         paneLogin.setVisible(true);
+        lblLoginFail.setVisible(false);
     }
 }
