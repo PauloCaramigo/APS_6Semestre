@@ -51,10 +51,10 @@ INSERT INTO agrotoxicos (estado, herbicidas, fungicidas, inseticidas, acaricidas
 INSERT INTO agrotoxicos (estado, herbicidas, fungicidas, inseticidas, acaricidas, outros, total) VALUES ("Distrito Federal", 109, 69, 21, 5, 19, 223);
 INSERT INTO agrotoxicos (estado, herbicidas, fungicidas, inseticidas, acaricidas, outros, total) VALUES ("Brasil", 81862, 19072, 19447, 8985, 11107, 140473);
 
-INSERT INTO images (address, permission) VALUES ('src/main/java/com/Images/BiometryShiro.jpg', 3);
-INSERT INTO images (address, permission) VALUES ('src/main/java/com/Images/BiometryVih.jpg', 3);
-INSERT INTO images (address, permission) VALUES ('src/main/java/com/Images/Teste.jpeg', 2);
+INSERT INTO images (address, permission) VALUES ('src/main/java/com/Images/BiometryPaulo.jpg', 3);
+INSERT INTO images (address, permission) VALUES ('src/main/java/com/Images/BiometryVitor.jpg', 3);
+INSERT INTO images (address, permission) VALUES ('src/main/java/com/Images/BiometryVanessa.jpg', 2);
 
-INSERT INTO users (userName, password, email, biometry, permission, state) VALUES ('Paulo', 'Senha', 'paulo@teste.com', 'src/main/java/com/Images/BiometryShiro.jpg', 3, 'São Paulo');
-INSERT INTO users (userName, password, email, biometry, permission, state) VALUES ('Vitor', 'Senha', 'vitor@teste.com', 'src/main/java/com/Images/BiometryVih.jpg', 2, 'São Paulo');
-INSERT INTO users (userName, password, email, biometry, permission, state) VALUES ('Vanessa', 'Senha', 'vanessa@teste.com', 'src/main/java/com/Images/Teste.jpeg', 1, 'São Paulo');
+INSERT INTO users (userName, password, email, biometry, permission, state) VALUES ('Paulo', 'Senha', 'paulo@teste.com', 'src/main/java/com/Images/BiometryPaulo.jpg', 3, 'São Paulo');
+INSERT INTO users (userName, password, email, biometry, permission, state) VALUES ('Vitor', 'Senha', 'vitor@teste.com', 'src/main/java/com/Images/BiometryVitor.jpg', 2, 'São Paulo');
+INSERT INTO users (userName, password, email, biometry, permission, state) VALUES ('Vanessa', 'Senha', 'vanessa@teste.com', 'src/main/java/com/Images/BiometryVanessa.jpg', 1, 'São Paulo');

@@ -52,11 +52,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Interface.Controller">
+<VBox prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Interface.Controller">
   <children>
     <AnchorPane fx:id="anchorPane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
       <children>
-            <Pane fx:id="paneLogin" layoutX="280.0" layoutY="60.0" prefHeight="600.0" prefWidth="720.0" style="-fx-background-radius: 50px; -fx-background-color: HoneyDew; -fx-border-radius: 50px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);" visible="false">
+            <Pane fx:id="paneLogin" layoutX="280.0" layoutY="60.0" prefHeight="600.0" prefWidth="720.0" style="-fx-background-radius: 50px; -fx-background-color: HoneyDew; -fx-border-radius: 50px; -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);">
                <children>
               <Label fx:id="lblLogin" alignment="CENTER" layoutX="50.0" layoutY="130.0" prefHeight="44.0" prefWidth="98.0" style="&#10;" text="Login" textAlignment="CENTER">
                 <font>
@@ -100,9 +100,9 @@
                      <font>
                         <Font size="25.0" />
                      </font></Label>
-                  <Label fx:id="lblLogin1" alignment="CENTER" layoutX="190.0" layoutY="27.0" prefHeight="53.0" prefWidth="403.0" style="&#10;" text="Agrotóxicos" textAlignment="CENTER">
+                  <Label fx:id="lblLogin1" alignment="CENTER" layoutX="190.0" layoutY="3.0" prefHeight="126.0" prefWidth="403.0" style="&#10;" text="Uso de agrotóxicos proibidos no Brasil" textAlignment="CENTER" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="48.0" />
+                        <Font name="System Bold" size="38.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="120.0" fitWidth="181.0" layoutX="28.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
@@ -216,7 +216,7 @@
                   </Button>
                </children>
             </Pane>
-            <ScrollPane fx:id="paneSystem" prefHeight="720.0" prefWidth="1280.0">
+            <ScrollPane fx:id="paneSystem" prefHeight="720.0" prefWidth="1280.0" visible="false">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;">
                      <children>
@@ -407,7 +407,7 @@
                         </Pane>
                         <Pane fx:id="paneDatabase" layoutX="300.0" prefHeight="720.0" prefWidth="980.0" visible="false">
                            <children>
-                              <TableView fx:id="database" layoutX="90.0" layoutY="130.0" prefHeight="550.0" prefWidth="800.0" tableMenuButtonVisible="true">
+                              <TableView fx:id="database" layoutX="90.0" layoutY="130.0" prefHeight="550.0" prefWidth="800.0">
                                  <columns>
                                     <TableColumn fx:id="stateCol" minWidth="110.0" prefWidth="75.0" text="Localidade" />
                                     <TableColumn fx:id="agro1Col" minWidth="110.0" prefWidth="75.0" text="Herbicidas" />

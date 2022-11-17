@@ -19,7 +19,8 @@ public class App extends Application {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("Layout.fxml"));
         Parent root = fxml.load();
         Scene display = new Scene(root);
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("Uso de agrotóxicos proibidos no Brasil");
+        primaryStage.setResizable(false);
         primaryStage.setScene(display);
         primaryStage.show();
     }

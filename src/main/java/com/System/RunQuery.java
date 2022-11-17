@@ -101,11 +101,10 @@ public class RunQuery {
 
     public Boolean insertNewUser(String userName, String password, String email, String biometry, String state) {
         s = null;
-        boolean query;
 
         try {
             s = (Statement) connectionDB.createStatement();
-            query = s.execute("INSERT INTO users(userName, password, email, biometry, permission, state)  VALUES ('"+ userName + "', '" + password +"', '"+ email +
+            s.execute("INSERT INTO users(userName, password, email, biometry, permission, state)  VALUES ('"+ userName + "', '" + password +"', '"+ email +
             "', '"  + biometry +"', 1,'" + state + "')");
             return true;
         } catch (SQLException e) {

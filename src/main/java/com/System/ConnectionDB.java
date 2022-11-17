@@ -10,7 +10,7 @@ public class ConnectionDB {
     private String url = null;
 
     public ConnectionDB() {
-        url = "jdbc:mysql://localhost/apsdatabase?user=root&password=";
+        url = "jdbc:mysql://localhost/apsdatabase?user=root&password=12345";
     }
         
     /*

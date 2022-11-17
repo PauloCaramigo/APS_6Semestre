@@ -194,7 +194,6 @@ public class Controller implements Initializable{
                 registered = ImageIO.read(new File (userBiometry));
                 credentials = runQuery.ConfirmLogin(userName, password);
                 if (registered != null && selected != null) biometry = getImages.compareImage(selected, registered);
-                System.out.println(biometry);
                 if (credentials && biometry) {
                     paneAccount.setVisible(false); paneHome.setVisible(true); paneLogin.setVisible(false); paneSystem.setVisible(true); paneManagement.setVisible(false); panePermission.setVisible(false); paneDatabase.setVisible(false);
                     getUser = userName;
@@ -208,7 +207,6 @@ public class Controller implements Initializable{
             else lblLoginFail.setVisible(true);
         }
         catch (Exception ex){
-            System.out.println(ex);
             lblLoginFail.setVisible(true);
         } 
     }
@@ -328,7 +326,6 @@ public class Controller implements Initializable{
 
     @FXML 
     private void okPrompt(MouseEvent event) throws IOException{
-        System.out.println(lblAction.getText());
         if (lblAction.getText().equals("Para confirmar a ação, insira sua biometria.")) {changePermissions(event);}
         else {showDatabase(event);}
     }
